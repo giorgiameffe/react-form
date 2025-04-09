@@ -39,24 +39,28 @@ function App() {
 
   return (
     <>
-      {/* Lista dei prodotti */}
+      <div className="container">
+        <h1>Giochi da tavola</h1>
 
-      <ul>
-        {items.map((item, i) => (
-          <li key={i}>{item.title} <button onClick={() => removeItem(i)}>Elimina</button></li>
-        ))}
-      </ul>
+        {/* Lista dei prodotti */}
 
-      {/* Form */}
+        <ul>
+          {items.map((item, i) => (
+            <li key={i}>{item.title} <button className="btn" onClick={() => removeItem(i)}><i class="fa-solid fa-trash trash"></i></button></li>
+          ))}
+        </ul>
 
-      <form onSubmit={addNewItem}>
-        <input
-          type="text"
-          value={newItem}
-          onChange={e => { setNewItem(e.target.value) }}
-        />
-        <button>Aggiungi nuovo prodotto</button>
-      </form>
+        {/* Form */}
+
+        <form onSubmit={addNewItem}>
+          <input
+            type="text"
+            value={newItem}
+            onChange={e => { setNewItem(e.target.value) }}
+          />
+          <button className="btn">Aggiungi nuovo prodotto</button>
+        </form>
+      </div>
     </>
   )
 }

@@ -1,0 +1,66 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+  font-style: italic;
+  color: #8D89A6;
+}
+
+:root {
+  background-color: #F2D5F8;
+  font-family: "Lilita One", sans-serif;
+}
+
+/* Lista prodotti */
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #8D89A6;
+  margin-bottom: 20px;
+}
+
+ul {
+  line-height: 50px;
+}
+
+li {
+  font-size: 20px;
+}
+
+/* Bottoni */
+
+.btn {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.btn:hover {
+  background-color: #A36D90;
+}
+
+input {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+}
