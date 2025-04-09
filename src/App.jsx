@@ -28,6 +28,14 @@ function App() {
     console.log('Aggiunto il prodotto ' + newItem)
   }
 
+  // rimuovere prodotto utilizzando filter --> restituisce un nuovo array con i prodotti rimanenti
+  const removeItem = i => {
+    const updateItems = items.filter((item, index) => {
+      return index !== i
+    })
+
+    setItems(updateItems);
+  }
 
   return (
     <>
@@ -35,7 +43,7 @@ function App() {
 
       <ul>
         {items.map((item, i) => (
-          <li key={i}>{item.title}</li>
+          <li key={i}>{item.title} <button onClick={() => removeItem(i)}>Elimina</button></li>
         ))}
       </ul>
 
