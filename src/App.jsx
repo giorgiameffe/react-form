@@ -4,30 +4,50 @@ import boardgames from "./data/boardgames";
 
 function App() {
 
-  // useState iniziale --> array di oggetti (prodotti)
+  // useState di riferimento --> array di oggetti (prodotti)
   const [items, setItems] = useState(boardgames);
-  // useState all'aggiunta del nuovo prodotto
-  const [newItem, setItem] = useState('');
 
-  const handleSubmit = event => {
+  // useState iniziale dell'input 
+  const [newItem, setNewItem] = useState('');
+
+  // salvare in una variabile la creazione dell'id
+  const id = parseInt((items.at(-1).id) + 1);
+
+  // creare nuovo prodotto con incremento id e rispettivo titolo
+  const newArticle = {
+    id,
+    title: newItem
+  }
+
+  // aggiungere nuovo prodotto tramite spread operator
+  const addNewItem = event => {
     event.preventDefault();
+    const updatedItems = [...items, newArticle];
+    setItems(updatedItems);
+    setNewItem('');
     console.log('Aggiunto il prodotto ' + newItem)
   }
 
+
   return (
     <>
-      {/* // Lista dei prodotti */}
+      {/* Lista dei prodotti */}
 
       <ul>
-        {boardgames.map(boardgame => <li key={boardgame.id}>{boardgame.title}</li>)}
+        {items.map((item, i) => (
+          <li key={i}>{item.title}</li>
+        ))}
       </ul>
 
-      <form onSubmit={handleSubmit}>
+      {/* Form */}
+
+      <form onSubmit={addNewItem}>
         <input
           type="text"
           value={newItem}
-          onChange={e => { setItem(e.target.value) }}
+          onChange={e => { setNewItem(e.target.value) }}
         />
+        <button>Aggiungi nuovo prodotto</button>
       </form>
     </>
   )
